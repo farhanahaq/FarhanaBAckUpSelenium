@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name= "functional_test_data">
+<test name = "LoginTest">
+<parameter name = "userName" value = "techfiosdemo@gmail.com"/>
+<parameter name = "password" value = "abc123"/>
+<parameter name = "fullname" value = "Fauci"/>
+<parameter name = "companyname" value = "CDC"/>
+<parameter name = "email" value = "fauci@somemail.com"/>
+<parameter name = "phone" value = "a12365478890"/>
+<parameter name = "address" value = "My Home"/>
+<parameter name = "city" value = "Mycity"/>
+<parameter name = "state" value = "TX"/>
+<parameter name = "zip" value = "v75034"/>
+
+<classes>
+	<!-- class name = "test.LoginTest" /> -->
+	<class name = "test.AddContactTest" />
+
+</classes>
+
+</test>
+
+</suite>
+
+
+
+
+

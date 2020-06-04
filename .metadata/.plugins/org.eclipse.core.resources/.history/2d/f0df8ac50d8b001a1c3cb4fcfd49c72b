@@ -1,0 +1,74 @@
+package HW1;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+
+public class Firefox {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+
+		System.setProperty("webdriver.gecko.driver", "C:\\Users\\14693\\eclipse-workspace-2\\LaunchBrowser\\Drivers\\geckodriver.exe");
+		WebDriver d = new FirefoxDriver();
+
+		
+		d.get("http://techfios.com/test/billing/?ng=admin/"); //getting a website
+		d.manage().window().maximize(); //maximing it
+		d.findElement(By.name("username")).sendKeys("techfiosdemo@gmail.com");
+		d.findElement(By.name("password")).sendKeys("abc123");
+		d.findElement(By.name("login")).click();
+		d.findElement(By.xpath("//span[contains(text(), 'Transactions')]")).click();
+		d.findElement(By.xpath("//a[contains(text(), 'New Deposit')]")).click();
+		d.findElement(By.id("select2-account-container")).click();
+		Thread.sleep(3000);		
+		d.findElement(By.xpath("//ul[@id='select2-account-results']//child::li[3]")).click();
+		d.findElement(By.xpath("//input[@id='description']")).sendKeys("Making Deposit");
+		d.findElement(By.xpath("//input[@id='amount']")).sendKeys("10.00");
+		d.findElement(By.xpath("//button[@id='submit']")).click();
+		
+		String description = d.findElement(By.xpath("//input[@id='description']")).getText();
+		By recentDepositLocator = By.linkText(description);
+		WebDriverWait wait = new WebDriverWait(d, 10);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(recentDepositLocator));
+		boolean status = d.findElement(recentDepositLocator).isDisplayed();
+			if(status==true) {
+				System.out.println("Test Passed");
+			} else System.out.println("Test Failed!!");
+			
+			Thread.sleep(3000);		
+		
+			//next HW#3	
+		d.findElement(By.xpath("//a[contains(text(), 'Transfer')]")).click();
+		d.findElement(By.id("select2-faccount-container")).click();
+		d.findElement(By.xpath("//ul[@id='select2-faccount-results']//child::li[3]")).click();
+		d.findElement(By.id("select2-taccount-container")).click();
+		d.findElement(By.xpath("//ul[@id='select2-taccount-results']//child::li[4]")).click();
+		d.findElement(By.xpath("//input[@id='description']")).sendKeys("Transferring money");
+		d.findElement(By.xpath("//input[@id='amount']")).sendKeys("60.00");
+		d.findElement(By.xpath("//button[@id='submit']")).click();
+		
+		
+		
+		
+		
+			
+			
+			//d.quit();
+			//d.close();
+				
+		}//end of main
+		
+	}//end of class
+	
+
+
+

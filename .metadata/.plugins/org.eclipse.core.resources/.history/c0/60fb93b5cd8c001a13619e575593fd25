@@ -1,0 +1,25 @@
+package session4;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class Dropdown {
+	
+	public static void main(String[] args) {
+	//passing location of Firefox driver
+	System.setProperty("webdriver.gecko.driver",
+			"C:\\Users\\14693\\eclipse-workspace-Selenium\\objectspy.space\\Drivers\\geckodriver.exe");
+	
+	//creating firefox webdriver d
+	WebDriver d = new FirefoxDriver();
+
+	//loading billing test site and logging in
+	d.get("http://techfios.com/test/billing/?ng=admin/"); // getting a website
+	d.manage().window().maximize(); // maximing it
+	d.findElement(By.name("username")).sendKeys("techfiosdemo@gmail.com");
+	d.findElement(By.name("password")).sendKeys("abc123");
+	d.findElement(By.name("login")).click();
+
+}
+}

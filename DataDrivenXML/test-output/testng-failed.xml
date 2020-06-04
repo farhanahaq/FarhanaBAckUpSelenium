@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [functional_test_data]">
+  <test thread-count="5" name="LoginTest(failed)">
+    <parameter name="zip" value="v75034"/>
+    <parameter name="password" value="abc123"/>
+    <parameter name="address" value="My Home"/>
+    <parameter name="phone" value="a12365478890"/>
+    <parameter name="city" value="Mycity"/>
+    <parameter name="companyname" value="CDC"/>
+    <parameter name="fullname" value="Fauci"/>
+    <parameter name="state" value="TX"/>
+    <parameter name="userName" value="techfiosdemo@gmail.com"/>
+    <parameter name="email" value="fauci@somemail.com"/>
+    <classes>
+      <class name="test.AddContactTest">
+        <methods>
+          <include name="validUserShouldBeAbleToLogin" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- test.AddContactTest -->
+    </classes>
+  </test> <!-- LoginTest(failed) -->
+</suite> <!-- Failed suite [functional_test_data] -->

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="126976" started-at="2020-05-08T17:35:09 CDT" finished-at="2020-05-08T17:37:16 CDT">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="126976" started-at="2020-05-08T17:35:09 CDT" finished-at="2020-05-08T17:37:16 CDT">
+      <class name="HW.HW_4_5">
+        <test-method status="PASS" signature="readConfig()[pri:0, instance:HW.HW_4_5@67205a84]" name="readConfig" is-config="true" duration-ms="9" started-at="2020-05-08T17:35:09 CDT" finished-at="2020-05-08T17:35:09 CDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- readConfig -->
+        <test-method status="PASS" signature="init()[pri:0, instance:HW.HW_4_5@67205a84]" name="init" is-config="true" duration-ms="10938" started-at="2020-05-08T17:35:09 CDT" finished-at="2020-05-08T17:35:20 CDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="loginTest()[pri:1, instance:HW.HW_4_5@67205a84]" name="loginTest" duration-ms="2486" started-at="2020-05-08T17:35:20 CDT" finished-at="2020-05-08T17:35:22 CDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:HW.HW_4_5@67205a84]" name="tearDown" is-config="true" duration-ms="175" started-at="2020-05-08T17:35:22 CDT" finished-at="2020-05-08T17:35:22 CDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="init()[pri:0, instance:HW.HW_4_5@67205a84]" name="init" is-config="true" duration-ms="6763" started-at="2020-05-08T17:35:22 CDT" finished-at="2020-05-08T17:35:29 CDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="Add_Verify_Delete_Contact()[pri:2, instance:HW.HW_4_5@67205a84]" name="Add_Verify_Delete_Contact" duration-ms="65494" started-at="2020-05-08T17:35:29 CDT" finished-at="2020-05-08T17:36:35 CDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Add_Verify_Delete_Contact -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:HW.HW_4_5@67205a84]" name="tearDown" is-config="true" duration-ms="154" started-at="2020-05-08T17:36:35 CDT" finished-at="2020-05-08T17:36:35 CDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="init()[pri:0, instance:HW.HW_4_5@67205a84]" name="init" is-config="true" duration-ms="6716" started-at="2020-05-08T17:36:35 CDT" finished-at="2020-05-08T17:36:42 CDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="AddNew_VerifyAdd_Account()[pri:3, instance:HW.HW_4_5@67205a84]" name="AddNew_VerifyAdd_Account" duration-ms="34020" started-at="2020-05-08T17:36:42 CDT" finished-at="2020-05-08T17:37:16 CDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AddNew_VerifyAdd_Account -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:HW.HW_4_5@67205a84]" name="tearDown" is-config="true" duration-ms="189" started-at="2020-05-08T17:37:16 CDT" finished-at="2020-05-08T17:37:16 CDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- HW.HW_4_5 -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="62715" started-at="2020-05-14T01:54:04 CDT" finished-at="2020-05-14T01:55:07 CDT">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="62715" started-at="2020-05-14T01:54:04 CDT" finished-at="2020-05-14T01:55:07 CDT">
+      <class name="test.test">
+        <test-method status="PASS" signature="validUserShdBeAbleToLogin()[pri:1, instance:test.test@3224f60b]" name="validUserShdBeAbleToLogin" duration-ms="9178" started-at="2020-05-14T01:54:04 CDT" finished-at="2020-05-14T01:54:13 CDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validUserShdBeAbleToLogin -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:test.test@3224f60b]" name="tearDown" is-config="true" duration-ms="689" started-at="2020-05-14T01:54:13 CDT" finished-at="2020-05-14T01:54:14 CDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="chkDashBoardPage()[pri:2, instance:test.test@3224f60b]" name="chkDashBoardPage" duration-ms="9434" started-at="2020-05-14T01:54:14 CDT" finished-at="2020-05-14T01:54:23 CDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- chkDashBoardPage -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:test.test@3224f60b]" name="tearDown" is-config="true" duration-ms="4871" started-at="2020-05-14T01:54:23 CDT" finished-at="2020-05-14T01:54:28 CDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="createNewACPage()[pri:3, instance:test.test@3224f60b]" name="createNewACPage" duration-ms="13712" started-at="2020-05-14T01:54:28 CDT" finished-at="2020-05-14T01:54:42 CDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createNewACPage -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:test.test@3224f60b]" name="tearDown" is-config="true" duration-ms="702" started-at="2020-05-14T01:54:42 CDT" finished-at="2020-05-14T01:54:43 CDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="createNewContactPage()[pri:4, instance:test.test@3224f60b]" name="createNewContactPage" duration-ms="23387" started-at="2020-05-14T01:54:43 CDT" finished-at="2020-05-14T01:55:06 CDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createNewContactPage -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:test.test@3224f60b]" name="tearDown" is-config="true" duration-ms="687" started-at="2020-05-14T01:55:06 CDT" finished-at="2020-05-14T01:55:07 CDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- test.test -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

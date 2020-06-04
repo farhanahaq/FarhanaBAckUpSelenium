@@ -1,0 +1,92 @@
+package HW1;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+
+
+public class Firefox {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		//guru99 code
+//		System.setProperty("webdriver.gecko.driver", "C:\\Users\\14693\\eclipse-workspace-2\\LaunchBrowser\\Drivers\\geckodriver.exe");
+//		WebDriver d = new FirefoxDriver();
+//	
+//		d.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//        d.get("http://demo.guru99.com/test/guru99home/");
+//
+//        //Search element inside 'Popular course' which are sibling of control 'SELENIUM' ,Here first we will find a h2 whose text is ''A few of our most popular courses' ,then we move to its parent element which is a 'div' , inside this div we will find a link whose text is 'SELENIUM' then at last we will find all of the sibling elements of this link('SELENIUM')
+//        
+//        List <WebElement> dateBox = d.findElements(By.xpath("//h2[contains(text(),'A few of our most popular courses')]/parent::div//div[//a[text()='SELENIUM']]/following-sibling::div[@class='rt-grid-2 rt-omega']"));
+//
+//        //Print all the which are sibling of the the element named as 'SELENIUM' in 'Popular course'
+//        for (WebElement webElement : dateBox) {
+//            System.out.println(webElement.getText());
+//        }     
+//
+//        d.close();
+   	
+//mycode
+		System.setProperty("webdriver.gecko.driver", "C:\\Users\\14693\\eclipse-workspace-2\\LaunchBrowser\\Drivers\\geckodriver.exe");
+		WebDriver d = new FirefoxDriver();
+	
+		//making object d do stuffs using properties of WebDriver 
+		//driver.get("http://demo.guru99.com/test/newtours/register.php"); //getting a website
+		//Select drpCountry = new Select(driver.findElement(By.name("country")));
+		//drpCountry.selectByVisibleText("BANGLADESH");
+		
+		d.get("http://techfios.com/test/billing/?ng=admin/"); //getting a website
+		d.manage().window().maximize(); //maximing it
+		d.findElement(By.name("username")).sendKeys("techfiosdemo@gmail.com");
+		d.findElement(By.name("password")).sendKeys("abc123");
+		d.findElement(By.name("login")).click();
+		d.findElement(By.xpath("//span[contains(text(), 'Transactions')]")).click();
+		d.findElement(By.xpath("//a[contains(text(), 'New Deposit')]")).click();
+		d.findElement(By.id("select2-account-container")).click();
+		//d.findElement(By.xpath("//select[@id='account']")).click();
+		Thread.sleep(3000);		
+		d.findElement(By.xpath("//ul[@id='select2-account-results']//child::li[1]//following-sibling::li[300]")).click();
+		d.findElement(By.xpath("//input[@id='description']")).sendKeys("Depositing money from Farhana Haq");
+		d.findElement(By.xpath("//input[@id='amount']")).sendKeys("500.00");
+		d.findElement(By.xpath("//button[@id='submit']")).click();
+		
+		//input[@id='description']
+		//d.findElement(By.name("date")).click();
+		//d.findElement(By.xpath("//a[contains(text(), 'Transfer')]")).click();
+		//d.findElement(By.id("select2-faccount-container")).click();
+		
+		//
+		Thread.sleep(3000);
+		//d.findElement(By.xpath("//option[contains (text(), 'abxc')]")).click();
+		
+		
+		//WebElement element = d.findElement(By.xpath("//select[@id='account']"));
+		//Select select = new Select(element);
+		//Thread.sleep(5000);
+		
+		//select.selectByIndex(1);
+		
+		//Select drpAccount = new Select(d.findElement(By.xpath("//select[@id='account']")));
+		//drpAccount.selectByVisibleText("abxc");
+		//drpAccount.selectByValue("Sandwich5");
+		
+		
+		
+		
+		
+		
+		//Thread.sleep(2000); //wait 2 sec
+		//d.close(); //closing it
+		
+
+	}
+	
+}
+
+

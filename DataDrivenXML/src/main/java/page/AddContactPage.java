@@ -1,0 +1,200 @@
+package page;
+
+//import org.testng.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.ElementNotVisibleException;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class AddContactPage extends BasePage {
+	
+	WebDriver driver;
+	int rand = BasePage.randomNumberGenerator();
+	String enterName = "Fauci" + rand;
+
+	public AddContactPage(WebDriver driver) {
+		this.driver = driver;
+
+	}
+
+	// Element Library
+	@FindBy(how = How.XPATH, using = "//span[contains(text(), 'CRM')]")
+	WebElement CRM_BUTTON_LOCATOR;
+	@FindBy(how = How.XPATH, using = "//a[contains(text(), 'Add Contact')]")
+	WebElement ADD_CONTACT_BUTTON_LOCATOR;
+	@FindBy(how = How.XPATH, using = "//input[@id='account']")
+	WebElement FULL_NAME_FIELD_LOCATOR;
+	@FindBy(how = How.XPATH, using = "//input[@id='company']")
+	WebElement COMPANY_NAME_FIELD_LOCATOR;
+	@FindBy(how = How.XPATH, using = "//input[@id='email']")
+	WebElement EMAIL_FIELD_LOCATOR;
+	@FindBy(how = How.XPATH, using = "//input[@id='phone']")
+	WebElement PHONE_FIELD_LOCATOR;
+	@FindBy(how = How.XPATH, using = "//input[@id='address']")
+	WebElement ADDRESS_FIELD_LOCATOR;
+	@FindBy(how = How.XPATH, using = "//input[@id='city']")
+	WebElement CITY_FIELD_LOCATOR;
+	@FindBy(how = How.XPATH, using = "//input[@id='state']")
+	WebElement STATE_REGION_FIELD_LOCATOR;
+	@FindBy(how = How.XPATH, using = "//input[@id='zip']")
+	WebElement ZIP_FIELD_LOCATOR;
+	@FindBy(how = How.XPATH, using = "//button[@class='btn btn-primary']")
+	WebElement SUBMIT_BUTTON_LOCATOR;
+	@FindBy(how = How.XPATH, using = "//a[contains(text(),'List Contacts')]")
+	WebElement LIST_CONTACTS_BUTTON_LOCATOR;
+	@FindBy(how = How.XPATH, using = "//div[@class='input-group']/input")
+	WebElement CONTACT_SEARCH_BOX_LOCATOR;
+	@FindBy(how = How.XPATH, using = "//button[@class='btn btn-primary']")
+	WebElement CONTACT_SEARCH_BUTTON_LOCATOR;
+	@FindBy(how = How.XPATH, using = "//div[@class='alert alert-success fade in']")
+	WebElement CONTACT_DELETE_MSG_LOCATOR;
+
+	// Click on Add Contact Button
+	public void AddContactButton() {
+		waitForElement(driver, 5, CRM_BUTTON_LOCATOR);
+		CRM_BUTTON_LOCATOR.click();
+		waitForElement(driver, 5, ADD_CONTACT_BUTTON_LOCATOR);
+		ADD_CONTACT_BUTTON_LOCATOR.click();
+		System.out.println("Add New AC Button is Visible");
+	}
+
+	
+//creating method to pass values to create new Contact
+	public void AddContactName(String contactname) throws InterruptedException {
+		Thread.sleep(3000); // because random number takes time sometimes
+		FULL_NAME_FIELD_LOCATOR.sendKeys(contactname + rand);
+		
+	}
+
+	public void AddCompanyName(String companyname) {
+		COMPANY_NAME_FIELD_LOCATOR.sendKeys(companyname + BasePage.randomNumberGenerator());
+	}
+
+	public void AddEmail(String email) {
+		EMAIL_FIELD_LOCATOR.sendKeys(BasePage.randomNumberGenerator() + email);
+	}
+
+	public void AddPhone(String phoneno) {
+		PHONE_FIELD_LOCATOR.sendKeys(phoneno);
+	}
+
+	public void AddAddress(String address) {
+		ADDRESS_FIELD_LOCATOR.sendKeys(address);
+	}
+
+	public void AddCity(String city) {
+		CITY_FIELD_LOCATOR.sendKeys(city);
+	}
+
+	public void AddState(String state) {
+		STATE_REGION_FIELD_LOCATOR.sendKeys(state);
+	}
+
+	public void AddZip(String zip) {
+		ZIP_FIELD_LOCATOR.sendKeys(zip);
+	}
+
+	public void SubmitButton() {
+		SUBMIT_BUTTON_LOCATOR.click();
+	}
+
+	public void List_Contact_click() {
+		waitForElement(driver, 5, LIST_CONTACTS_BUTTON_LOCATOR);
+		LIST_CONTACTS_BUTTON_LOCATOR.click();
+	}
+
+	public void Contact_Search_name(String fullname) throws InterruptedException {
+		Thread.sleep(3000);
+		CONTACT_SEARCH_BOX_LOCATOR.sendKeys(fullname + rand);
+		}
+
+	public void Contact_Search_Button_Click() throws InterruptedException {
+		CONTACT_SEARCH_BUTTON_LOCATOR.click();
+		Thread.sleep(3000);
+	}
+
+	
+	//Storing xpath of new contact
+	//tbody/tr[1]/td[2]
+	String before_xpath = "//tbody/tr[";
+	String after_xpath = "]/td[2]";
+	
+	public void deleteEnteredContact() throws InterruptedException {
+		//going back to List Contact button
+		waitForElement(driver, 5, LIST_CONTACTS_BUTTON_LOCATOR);
+		LIST_CONTACTS_BUTTON_LOCATOR.click();
+		Thread.sleep(2000);
+		
+		//for loop that will check if name was entered as expected and 
+		for(int i = 1; i <= 10; i++) {
+			Thread.sleep(2000);
+			String name = driver.findElement(By.xpath(before_xpath + i + after_xpath)).getText();
+			Thread.sleep(2000);
+				//if else is checking if contact added then view it and delete it
+			if (name.contains(enterName)) {
+				System.out.println("Expected name = " + enterName + " and" + " Entered name = " + name);
+				//Assert.assertEquals(name, enterName, "Contact not found!!"); 
+	
+				//view the contact
+				Thread.sleep(2000);
+				driver.findElement(By.xpath("//tbody/tr[" + i + "]/td[6]/a[1]")).click();
+				Thread.sleep(2000);
+				LIST_CONTACTS_BUTTON_LOCATOR.click();				
+				
+				//Deleting it 
+				driver.findElement(By.xpath("//tbody/tr[" + i + "]/td[6]/a[2]")).click();
+				Thread.sleep(5000);
+				driver.findElement(By.xpath("//button[contains(text(), 'OK')]")).click();
+				
+				//Verify successful deleting message
+				try {
+				waitForElement(driver, 2, CONTACT_DELETE_MSG_LOCATOR);
+					//Thread.sleep(2000);
+					System.out.println("Contact DELETED!");
+					
+
+			} catch (ElementNotVisibleException e) {
+					System.out.println("Contact was NOT deleted!");
+					e.printStackTrace();
+			}
+				
+			i=11; //terminating the loop after it finds the new contact					
+			}//end of if else
+			
+		}//end of for loop
+		
+		
+	}//end of deleteEnteredContact method
+	
+	
+	
+
+	public void scrollingUpDown() throws InterruptedException {
+
+		// scroll up and down
+		JavascriptExecutor up_down = (JavascriptExecutor) driver;
+		up_down.executeScript("scroll(0, 1800)");
+		Thread.sleep(2000);
+		up_down.executeScript("scroll(0, 0)");
+		Thread.sleep(2000);
+	}
+
+	public void waitForElement(WebDriver driver2, int timeInSeconds, WebElement dASHBOARD_PAGE_TITLE_LOCATOR2) {
+		WebDriverWait wait = new WebDriverWait(driver, timeInSeconds);
+		wait.until(ExpectedConditions.visibilityOf(dASHBOARD_PAGE_TITLE_LOCATOR2));
+
+	}
+
+	public void waitForElementLOCATOR(WebDriver driver, int timeInSeconds, By locator) {
+		WebDriverWait wait = new WebDriverWait(driver, timeInSeconds);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+	}
+}
+
+
+
